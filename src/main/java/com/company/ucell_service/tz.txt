@@ -1,0 +1,25 @@
+
+1.Ucell Kompaniyasiga o'xshagan project yozing. Barcha ma'lumotlarni fileda saqlang.
+ Authorization qilib keyin projectni ishlata olsin! email orqali registeratsiya qila olsin faqat.
+Login ham email orqali bo'ladi regexpdan foydalanib userni barcha ma'lumotlarni tekshiruvdan o'tkazing.
+Barcha mufaqiyatli bo'lsa log tashlang.
+User qachon registeratsiya bo'lgani Time classlaridan biridan foydalanib filega yozing filedan o'qib usha classga parse qiling. Barcha chatlashuvlarni ozi bilan qachon yozilganigacha
+ vaqtni saqlab keting.Role lar bo'lsin SuperAdmin,Admin,Manager,User.
+
+1->SuperAdmin bb kirganda 1/Admin CRUD qilsin (CREATE,READ,UPDATE, DELETE)
+                          2/Manager CRUD qilsin
+                          3/User CRUD qilsin
+
+2->Admin bb kirganda      1/Nomer CRUD(yani Userlar sotib olishi mumkin bolgan bosh nomerlar 93|94 code lari bilan)
+                          2/Tarif CRUD(yani Userlar nomer sotib olayotganda tanlashi kerak bolgan tariflar)
+
+3->Manager bb kirganda    1/User larni raqamini muzlatib qo'ysin vaqtinchalik  va  raqamni o'z holiga qaytarsin
+                          2/USSD menu ga raqamlar qo'shib chiqsin (*109#-Trafik qoldig'ini tekshirish ya'ni...)
+
+4-User bb kirganda        1/Sotuvda bolgan nomerlar korinsin
+                          2/Barcha tariflar korinsin
+                          3/USSD menu ga kiraolsin
+
+
+
+Project qurishda OOP prinsplari , for , regex , Java time api kabilardan foydalanib bajarasiz ...
