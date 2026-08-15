@@ -26,6 +26,7 @@ public class Users {
         this.role = role;
         this.registeredAt = registeredAt;
     }
+    public Users() {}
 
     public Long getId() {
         return id;
