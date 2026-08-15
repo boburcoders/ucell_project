@@ -3,8 +3,9 @@
  Authorization qilib keyin projectni ishlata olsin! email orqali registeratsiya qila olsin faqat.
 Login ham email orqali bo'ladi regexpdan foydalanib userni barcha ma'lumotlarni tekshiruvdan o'tkazing.
 Barcha mufaqiyatli bo'lsa log tashlang.
-User qachon registeratsiya bo'lgani Time classlaridan biridan foydalanib filega yozing filedan o'qib usha classga parse qiling. Barcha chatlashuvlarni ozi bilan qachon yozilganigacha
- vaqtni saqlab keting.Role lar bo'lsin SuperAdmin,Admin,Manager,User.
+User qachon registeratsiya bo'lgani Time classlaridan biridan foydalanib filega yozing filedan o'qib usha classga parse qiling.
+Barcha chatlashuvlarni ozi bilan qachon yozilganigacha
+vaqtni saqlab keting.Role lar bo'lsin SuperAdmin,Admin,Manager,User.
 
 1->SuperAdmin bb kirganda 1/Admin CRUD qilsin (CREATE,READ,UPDATE, DELETE)
                           2/Manager CRUD qilsin

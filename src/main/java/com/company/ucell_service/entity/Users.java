@@ -26,6 +26,7 @@ public class Users {
         this.role = role;
         this.registeredAt = registeredAt;
     }
+    public Users() {}
 
     public Long getId() {
         return id;
@@ -74,5 +75,17 @@ public class Users {
 
     public void setRegisteredAt(LocalDateTime registeredAt) {
         this.registeredAt = registeredAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", passwordHash='" + passwordHash + '\'' +
+                ", role=" + role +
+                ", registeredAt=" + registeredAt +
+                '}';
     }
 }
