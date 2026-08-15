@@ -6,7 +6,15 @@ import com.company.ucell_service.repository.UserRepository;
 import java.io.IOException;
 
 public class AuthService {
-    private static UserRepository userRepository;
+    private static final UserRepository userRepository;
+
+    static {
+        try {
+            userRepository = new UserRepository();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public Users login(String email, String password) throws IOException {
         Users user = userRepository.findByEmail(email);

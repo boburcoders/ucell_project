@@ -3,7 +3,6 @@ package com.company.ucell_service.entity;
 import com.company.ucell_service.entity.enums.UserRole;
 
 import java.time.LocalDateTime;
-import java.util.Random;
 
 public class Users {
     private Long id;
@@ -26,16 +25,18 @@ public class Users {
         this.role = role;
         this.registeredAt = registeredAt;
     }
-    public Users() {}
+
+    public Users() {
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
     }
 
-    public void setId() {
-        Random random = new Random();
-        this.id = random.nextLong();
-    }
 
     public String getUsername() {
         return username;
