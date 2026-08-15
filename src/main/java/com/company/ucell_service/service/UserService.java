@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
+import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -23,15 +24,20 @@ public class UserService extends UserRepository {
         System.setProperty("java.util.logging.config.file", file);
     }
     public static Handler handler=new LogSendHandler();
+
     public static Users users = new Users();
     public static Logger logger = Logger.getLogger(UserService.class.getName());
+    FileService fileService = new FileService();
+
+    public UserService() throws IOException {
+    }
 
     public Users checkUser(String email) throws IOException {
 return null;
     }
 
     public boolean createUser(Users users) throws IOException {
-        logger.info(LocalDateTime.now() + users.toString());
+        fileService.createUser(users);
         return true;
     }
 
