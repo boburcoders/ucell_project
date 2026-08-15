@@ -1,56 +1,75 @@
 package com.company.ucell_service.service;
 
 import com.company.ucell_service.entity.Users;
-import com.company.ucell_service.entity.enums.UserRole;
-import com.company.ucell_service.handler.LogSendHandler;
 import com.company.ucell_service.repository.UserRepository;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.time.LocalDateTime;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserService extends UserRepository {
+public class UserService {
     // todo: fileService
     //  User CRUD
 
-    static {
-        String file = UserService.class.getClassLoader().getResource("logging.properties").getFile();
-        System.setProperty("java.util.logging.config.file", file);
-    }
-    public static Handler handler=new LogSendHandler();
+    private static final String EMAIL_REGEX = "";
+    private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
 
-    public static Users users = new Users();
-    public static Logger logger = Logger.getLogger(UserService.class.getName());
-    FileService fileService = new FileService();
+    private static final UserRepository userRepo;
+    private static final FileService fileService;
+
+    static {
+        try {
+            userRepo = new UserRepository();
+            fileService = new FileService();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public UserService() throws IOException {
     }
 
-    public Users checkUser(String email) throws IOException {
-return null;
+    public boolean createUser(Users users) throws IOException {
+        validateRequest(users);
+        return fileService.createUser(users);
     }
 
-    public boolean createUser(Users users) throws IOException {
-        fileService.createUser(users);
-        return true;
-    }
 
     public Users getUserByEmail(String email) throws IOException {
-        return findByEmail(email);
+        return userRepo.findByEmail(email);
     }
 
-    public boolean updateUserByEmail(String email, Users users) {
+    public boolean updateUserByEmail(String email, Users users) throws IOException {
+        Users userByEmail = getUserByEmail(email);
+        if (users.getEmail() != null)
+            userByEmail.setEmail(users.getEmail());
+
         return true;
 
     }
 
     public boolean deleteUserByEmail(String email) {
         return true;
+    }
+
+    // HELPER METHODS
+
+    private boolean isValidEmail(String email) {
+        return true;
+//        return email != null && EMAIL_PATTERN.matcher(email).matches();
+    }
+
+    private void validateRequest(Users users) throws IOException {
+        if (users.getEmail() != null) {
+            Users userByEmail = getUserByEmail(users.getEmail());
+            if (!isValidEmail(users.getEmail())) {
+                throw new IllegalAccessError("Email is not valid");
+            }
+            if (userByEmail != null) {
+                throw new RuntimeException("Email already exist");
+            }
+            if (users.getRole() == null) {
+                throw new IllegalArgumentException("Role must not be null");
+            }
+        }
     }
 }

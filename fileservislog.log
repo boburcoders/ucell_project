@@ -42,3 +42,35 @@
   <message>2026-08-15T17:39:35.814720100Users{id=null, username='null', email='null', passwordHash='null', role=SUPER_ADMIN, registeredAt=null}</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2026-08-15T15:31:14.416086818Z</date>
+  <millis>1786807874416</millis>
+  <nanos>86818</nanos>
+  <sequence>1</sequence>
+  <logger>MyLoggerTest</logger>
+  <level>INFO</level>
+  <class>com.company.ucell_service.service.FileService</class>
+  <method>createDefaultSuperAdmin</method>
+  <thread>1</thread>
+  <message>SuperAdmin Already created!!</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2026-08-15T15:33:09.423499675Z</date>
+  <millis>1786807989423</millis>
+  <nanos>499675</nanos>
+  <sequence>1</sequence>
+  <logger>MyLoggerTest</logger>
+  <level>INFO</level>
+  <class>com.company.ucell_service.service.FileService</class>
+  <method>createDefaultSuperAdmin</method>
+  <thread>1</thread>
+  <message>SuperAdmin Already created!!</message>
+</record>
+</log>
